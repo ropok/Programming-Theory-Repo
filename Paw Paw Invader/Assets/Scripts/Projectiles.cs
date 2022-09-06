@@ -16,6 +16,7 @@ public abstract class Projectiles : MonoBehaviour
         m_boundary = defaultBoundary;
     }
 
+
     // Update is called once per frame
     void Update()
     {
@@ -40,5 +41,10 @@ public abstract class Projectiles : MonoBehaviour
             Destroy(gameObject);
         }
 
+    }
+
+    protected virtual void Explode()
+    {
+        Debug.Log("Explode!");
     }
 }
