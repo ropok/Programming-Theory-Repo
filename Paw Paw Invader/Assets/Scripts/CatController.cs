@@ -16,6 +16,8 @@ public class CatController : MonoBehaviour
     private bool isMoving = false;
     private float movingDirection = 1;
 
+    public float satietyLevel = 0f;
+
     private void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -75,6 +77,16 @@ public class CatController : MonoBehaviour
     {
         boundaryMove = Random.Range(0, boundary_X);
         return boundaryMove;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("CatFood") && satietyLevel <= 100)
+        { 
+        
+            satietyLevel += collision.GetComponent<ProjectilesPlayer>().m_damage;
+            Debug.Log("Satiety Level: " + satietyLevel);
+        }
     }
 
 }

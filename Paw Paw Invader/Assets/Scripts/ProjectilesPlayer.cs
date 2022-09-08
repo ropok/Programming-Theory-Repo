@@ -6,6 +6,7 @@ public class ProjectilesPlayer : Projectiles
 {
     protected override float defaultSpeed { get { return 10.0f; } }
     protected override float defaultBoundary { get { return 4.5f; } }
+    protected override float defaultMaxDamage { get { return 5.0f; } }
 
     protected override void Explode()
     {
@@ -21,4 +22,5 @@ public class ProjectilesPlayer : Projectiles
             Destroy(gameObject);
         }
     }
+
 }

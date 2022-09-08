@@ -10,10 +10,14 @@ public abstract class Projectiles : MonoBehaviour
     public float m_boundary { get; protected set; }
     protected abstract float defaultBoundary { get; }
 
+    public float m_damage { get; protected set; }
+    protected abstract float defaultMaxDamage { get; }
+
     private void Awake()
     {
         m_speed = defaultSpeed;
         m_boundary = defaultBoundary;
+        m_damage = generateDamage(defaultMaxDamage);
     }
 
 
@@ -46,5 +50,12 @@ public abstract class Projectiles : MonoBehaviour
     protected virtual void Explode()
     {
         Debug.Log("Explode!");
+    }
+
+    float generateDamage(float maxDamage)
+    {
+        float damage;
+        damage = Random.Range(0, maxDamage);
+        return damage;
     }
 }
