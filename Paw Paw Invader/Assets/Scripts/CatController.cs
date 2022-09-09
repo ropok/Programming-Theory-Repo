@@ -18,16 +18,21 @@ public class CatController : MonoBehaviour
 
     public float satietyLevel = 0f;
 
+    private IEnumerator shootCoroutine;
+    private float shootTimerMax;
+
     private void Awake()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        shootTimerMax = 3.0f;
+        shootCoroutine = ShootCoroutine(projectilePrefab, shootTimerMax);
     }
 
     private void Update()
     {
         MovePlayer(thrust);
         MovementBoundary(boundaryX);
-        ShootControl(projectilePrefab);
+        StartCoroutine(shootCoroutine);
 
     }
 
@@ -63,6 +68,16 @@ public class CatController : MonoBehaviour
             transform.position = new Vector2(-boundaryX, transform.position.y);
             isMoving = false;
         }
+    }
+
+    private IEnumerator ShootCoroutine(GameObject projectilePrefab, float timerMax)
+    {
+            float timer = Random.Range(0, timerMax);
+        Debug.Log(timer);
+            yield return new WaitForSeconds(timer);
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        yield return StartCoroutine(ShootCoroutine(projectilePrefab, timerMax));
+
     }
 
     void ShootControl(GameObject projectilePrefab)
