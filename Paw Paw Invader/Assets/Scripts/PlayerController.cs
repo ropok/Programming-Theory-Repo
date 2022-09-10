@@ -21,10 +21,14 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        MovePlayer(thrust);
-        MovementBoundary(boundaryX);
-        ShootControl(projectilePrefab);
+        if (!GameManager.isPaused)
+        {
+            MovePlayer(thrust);
+            MovementBoundary(boundaryX);
+            ShootControl(projectilePrefab);
 
+            if (healthPoint <= 0) GameManager.Instance.GameOver();
+        }
     }
 
     void MovePlayer(float thrust)

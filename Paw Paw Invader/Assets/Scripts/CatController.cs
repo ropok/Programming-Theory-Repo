@@ -17,6 +17,7 @@ public class CatController : MonoBehaviour
     private float movingDirection = 1;
 
     public float satietyLevel = 0f;
+    public float satietyLevelMax = 100.0f;
 
     private IEnumerator shootCoroutine;
     private float shootTimerMax;
@@ -28,12 +29,13 @@ public class CatController : MonoBehaviour
         shootCoroutine = ShootCoroutine(projectilePrefab, shootTimerMax);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         MovePlayer(thrust);
         MovementBoundary(boundaryX);
         StartCoroutine(shootCoroutine);
 
+        if (satietyLevel >= satietyLevelMax) GameManager.Instance.LevelCompleted();
     }
 
     void MovePlayer(float thrust)
