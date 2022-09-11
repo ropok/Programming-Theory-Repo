@@ -62,9 +62,14 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.CompareTag("CatPoo") && healthPoint >= 0)
         {
-            healthPoint -= collision.GetComponent<ProjectilesCat>().m_damage;
-            Debug.Log("Health Point: " + healthPoint);
+            TakeDamage(collision.GetComponent<ProjectilesCat>().m_damage);
         }
+    }
+
+    private void TakeDamage(float damage)
+    {
+        healthPoint -= damage;
+        Debug.Log("Damage taken: " + damage + ", Health Point Left: " + healthPoint);
     }
 
 }
