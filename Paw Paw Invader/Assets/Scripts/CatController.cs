@@ -74,10 +74,10 @@ public class CatController : MonoBehaviour
 
     private IEnumerator ShootCoroutine(GameObject projectilePrefab, float timerMax)
     {
-            float timer = Random.Range(0, timerMax);
-        Debug.Log(timer);
-            yield return new WaitForSeconds(timer);
-            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        float timer = Random.Range(0, timerMax);
+        //Debug.Log(timer);
+        yield return new WaitForSeconds(timer);
+        Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         yield return StartCoroutine(ShootCoroutine(projectilePrefab, timerMax));
 
     }

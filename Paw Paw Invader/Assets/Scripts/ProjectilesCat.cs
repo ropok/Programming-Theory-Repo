@@ -10,7 +10,7 @@ public class ProjectilesCat : Projectiles
 
     protected override void Explode()
     {
-        Debug.Log("Kapaw!");
+        //Debug.Log("Kapaw!");
     }
 
 
