@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-        isPaused = false;
+        ResumeGame();
     }
 
     // Update is called once per frame
