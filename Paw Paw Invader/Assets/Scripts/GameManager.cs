@@ -27,10 +27,6 @@ public class GameManager : MonoBehaviour
         InputCatName(DataManager.Instance.inputCatName);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
 
     public void GameOver()
     {

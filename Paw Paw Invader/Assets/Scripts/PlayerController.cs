@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb2D;
-    [SerializeField] float thrust = 20.0f;
+    [SerializeField] float thrust;
     [SerializeField] GameObject projectilePrefab;
 
     // boundary
