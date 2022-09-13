@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         InputCatName(DataManager.Instance.inputCatName);
     }
 
-
+    // ABSTRACTION
     public void GameOver()
     {
         UIManager.transform.Find("GameOver").gameObject.SetActive(true);

@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+// INHERITANCE
 public abstract class Projectiles : MonoBehaviour
 {
+    // ENCAPSULATION
     public float m_speed { get; protected set; }
     protected abstract float defaultSpeed { get; }
 
@@ -28,12 +29,13 @@ public abstract class Projectiles : MonoBehaviour
         ProjectileBoundary(m_boundary);
 
     }
-
+    // ABSTRACTION
     void ProjectileMovement(float speed)
     {
         transform.Translate(0, speed * Time.deltaTime, 0);
     }
 
+    // ABSTRACTION
     void ProjectileBoundary(float boundaryY)
     {
         if (transform.position.y >= boundaryY && boundaryY > 0)
@@ -52,6 +54,7 @@ public abstract class Projectiles : MonoBehaviour
         Debug.Log("Explode!");
     }
 
+    // ABSTRACTION
     float generateDamage(float maxDamage)
     {
         float damage;
