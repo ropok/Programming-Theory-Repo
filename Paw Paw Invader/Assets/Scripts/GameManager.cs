@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static bool isPaused;
     [SerializeField] GameObject UIManager;
+    [SerializeField] TextMeshProUGUI inputCatName;
 
     public static GameManager Instance
     {
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
         ResumeGame();
+        InputCatName(DataManager.Instance.inputCatName);
     }
 
     // Update is called once per frame
@@ -53,5 +56,10 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         isPaused = false;
+    }
+
+    void InputCatName(string s)
+    {
+        inputCatName.text = s + " The Cat";
     }
 }

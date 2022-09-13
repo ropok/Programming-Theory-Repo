@@ -19,4 +19,9 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void ReadInputCatName(string s)
+    {
+        DataManager.Instance.inputCatName = s;
+    }
 }
